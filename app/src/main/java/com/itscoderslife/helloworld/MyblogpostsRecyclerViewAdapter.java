@@ -1,5 +1,6 @@
 package com.itscoderslife.helloworld;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +37,14 @@ public class MyblogpostsRecyclerViewAdapter extends RecyclerView.Adapter<Myblogp
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).details);
+
+        String colorStr = "#ffffff";
+        if(position%2 == 0) {
+            colorStr = "#f0f0f0";
+        }
+        holder.mView.setBackgroundColor(Color.parseColor(colorStr));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
