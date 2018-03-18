@@ -1,5 +1,6 @@
 package com.itscoderslife.helloworld;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +37,8 @@ public class MyblogpostsRecyclerViewAdapter extends RecyclerView.Adapter<Myblogp
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).details);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +66,9 @@ public class MyblogpostsRecyclerViewAdapter extends RecyclerView.Adapter<Myblogp
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.title);
-            mContentView = (TextView) view.findViewById(R.id.desc);
+            CardView cv = (CardView) view.findViewById(R.id.card_view);
+            mIdView = (TextView) cv.findViewById(R.id.title);
+            mContentView = (TextView) cv.findViewById(R.id.desc);
         }
 
         @Override
